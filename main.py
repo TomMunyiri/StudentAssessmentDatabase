@@ -3,6 +3,7 @@ from ui import *
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableView
 from PyQt5 import QtSql
 from PyQt5 import QtCore
+from PyQt5 import QtGui
 
 class form(QMainWindow):
     def __init__(self):
@@ -24,12 +25,24 @@ class form(QMainWindow):
         self.model.setHeaderData(6, QtCore.Qt.Horizontal,"Component")
         self.ui.tableWidget.setModel(self.model)
         self.ui.pushButton.clicked.connect(self.addToDb)
+        self.ui.query.textChanged.connect(self.search)
         self.show()
         self.ui.pushButton_2.clicked.connect(self.updaterow)
         self.ui.pushButton_3.clicked.connect(self.delrow)
         self.i = self.model.rowCount()
         self.ui.lcdNumber.display(self.i)
         print(self.ui.tableWidget.currentIndex().row())
+
+    def search(self):
+        items = self.ui.tableWidget.findItems(
+            self.ui.query.text(), QtCore.Qt.MatchExactly)
+        if items:
+            results = '\n'.join(
+                'row %d column %d' % (item.row() + 1, item.column() + 1)
+                for item in items)
+        else:
+            results = 'Found Nothing'
+        QtGui.QMessageBox.information(self, 'Search Results', results)
 
     def addToDb(self):
         print(self.i)

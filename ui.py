@@ -17,6 +17,7 @@ class Ui_MainWindow(object):
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setGeometry(QtCore.QRect(0, 0, 671, 400))
         self.groupBox.setObjectName("groupBox")
+
         self.lcdNumber = QtWidgets.QLCDNumber(self.groupBox)
         self.lcdNumber.setGeometry(QtCore.QRect(520, 10, 151, 81))
         self.lcdNumber.setObjectName("lcdNumber")
@@ -62,6 +63,11 @@ class Ui_MainWindow(object):
         self.lineEdit_5 = QtWidgets.QLineEdit(self.groupBox)
         self.lineEdit_5.setGeometry(QtCore.QRect(10, 290, 411, 20))
         self.lineEdit_5.setObjectName("lineEdit_5")
+
+        self.query = QtWidgets.QLineEdit(self.centralwidget)
+        self.query.setGeometry(QtCore.QRect(20, 323, 630, 20))
+        self.query.setPlaceholderText("Search Assessment...")
+        self.query.setObjectName("query")
 
         self.tableWidget = QtWidgets.QTableView(self.centralwidget)
         self.tableWidget.setGeometry(QtCore.QRect(0, 345, 671, 201))
