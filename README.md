@@ -54,5 +54,4 @@ else:
     QMessageBox.question(self,'Message', "Please select a row would you like to delete", QMessageBox.Ok)
     self.show()
 ```
-![alt text](https://github.com/skinex/CRUD-SQLite-/blob/master/project.png)
-# StudentAssessmentDatabase
+![alt text](https://github.com/TomMunyiri/StudentAssessmentDatabase/blob/main/project.png)
